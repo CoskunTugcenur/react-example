@@ -1,5 +1,5 @@
-import React from 'react'
-import { Dropdown, Image, Label, Menu } from 'semantic-ui-react';
+import React from 'react';
+import { Dropdown, Image, Menu } from 'semantic-ui-react';
 
 export default function SignedIn({signOut}) {
     return (

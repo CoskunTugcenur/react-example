@@ -1,25 +1,33 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
-import ProductDetail from '../pages/ProductDetail'
-import ProductList from '../pages/ProductList'
-import Categories from './Categories'
+import React from "react";
+import { Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { Grid } from "semantic-ui-react";
+import CartDetail from "../pages/CartDetail";
+import ProductDetail from "../pages/ProductDetail";
+import ProductList from "../pages/ProductList";
+import Categories from "./Categories";
 
-export default function Dashboard() {
+export default function Dashboard({ item }) {
   return (
-
-    <Grid>
+    <div>
+      <ToastContainer position="bottom-right" />
+      <Grid>
         <Grid.Column width={4}>
-            <Categories/>
+          <Categories />
         </Grid.Column>
         <Grid.Column width={12}>
-
-            <Route exact  path="/" component={ProductList}/>
-            <Route exact  path="/products" component={ProductList}/>
-            <Route exact  path="/products/:id" component={ProductDetail}/>
-
+          <Route exact path="/" component={ProductList} />
+          <Route exact path="/products" component={ProductList} />
+          <Route
+            exact
+            path="/products/:productName"
+            component={ProductDetail}
+          />
+          <Route path="/cart" component={CartDetail}/>
+          <Route path="/cart/add" component={CartDetail}/>
 
         </Grid.Column>
-    </Grid>
-  )
+      </Grid>
+    </div>
+  );
 }

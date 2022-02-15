@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from "axios";
 export default class ProductService {
 
@@ -6,5 +5,8 @@ export default class ProductService {
       return  axios.get("http://localhost:8080/api/products/getall");
     }
 
+    getByProductName(productName){
+      return axios.get("http://localhost:8080/api/products/getByProductName?productName="+productName);
+    }
  
 }
